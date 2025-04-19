@@ -1,7 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+import { FaUser,FaSignOutAlt } from "react-icons/fa";
+import { MdDashboard } from "react-icons/md";
 
 const Navbar = () => {
+
+   const {user,userLogOut} = useAuth()
 
 
      const links = <>
@@ -14,7 +19,7 @@ const Navbar = () => {
 
     
     return (
-        <div className="navbar  flex justify-between bg-base-100 shadow-sm">
+        <div className="navbar  flex justify-between bg-base-100 shadow-sm px-14 py-4">
         <div className="">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -26,14 +31,19 @@ const Navbar = () => {
                         {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl primary_text_color">GO MARATHON</a>
         </div>
         <div className=" hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
                     {links}
           </ul>
         </div>
-        <div className="dropdown dropdown-end">
+
+          {
+
+             user ? 
+              <>
+               <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img
@@ -43,17 +53,35 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu menu-md dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li>
-          <a className="justify-between">
+          <Link className="text-lg my-2">
+             <FaUser></FaUser>
             Profile
-            <span className="badge">New</span>
-          </a>
+
+          </Link>
         </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li><Link className='text-lg my-2'> <MdDashboard></MdDashboard> Dashboard</Link></li>
+        <li><Link onClick={userLogOut} className='text-lg my-2'>  <FaSignOutAlt></FaSignOutAlt> Logout</Link></li>
       </ul>
     </div>
+              </>
+              :
+              <>
+                 <div className='auth_button flex gap-x-4'>
+                <Link to='logIn' className="log_in">
+                  <button className="primary_btn">Log In</button>
+                </Link>
+
+                <Link to='signUp' className="sign_up">
+                  <button className="secondary_btn">Sign Up</button>
+                </Link>
+          </div>
+              </>
+
+          }
+       
+       
       </div>
     );
 };

@@ -1,2 +1,49 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+/* !common section starts */
+    :root {
+        --primary: #FF6F61;     
+        --secondary: #264653;   
+        --accent: #F4A261;      
+        --background: #FDFDFD;  
+        --textDark: #2C2C2C;    
+        --borderGray: #E0E0E0;  
+    }
+
+    .primary_bg_color {
+          background-color: var(--primary);
+    }
+    .primary_text_color {
+         color: var(--primary);
+    }
+
+    .primary_btn {
+        @apply bg-[#FF6F61] px-6 py-2 rounded-sm font-semibold cursor-pointer
+    }
+    .secondary_btn{
+        @apply  border border-[#FF6F61] px-6 py-2 rounded-sm hover:bg-[#FF6F61] transition-all font-semibold cursor-pointer
+    }
+/* !common section ends */
+
+
+
+
+
+
+
+
+
+/* ! form section */
+
+.auth_form input {
+    @apply w-full mt-2 mb-6 py-6 px-4
+}
+
+
+/* navbar */
+
+.navbar ul li a{
+    @apply text-sm  uppercase font-semibold     
+}

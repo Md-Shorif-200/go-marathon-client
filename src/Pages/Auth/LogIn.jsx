@@ -1,0 +1,121 @@
+import React, { useState } from 'react';
+
+import { useForm } from 'react-hook-form';
+import useAuth from '../../Hooks/useAuth';
+import image_1 from '../../assets/FormImage/LogIn.avif'
+import { Link } from 'react-router-dom';
+import { FaEye, FaEyeSlash, FaSpinner } from 'react-icons/fa';
+import { sendEmailVerification } from 'firebase/auth';
+
+const LogIn = () => {
+    // react hook form  
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+      } = useForm();
+
+
+    const {UserLogIn} = useAuth()
+    const [loading,setLoading] = useState(false);
+    const [showPassword,setShowPassword] = useState(true)
+
+
+    const onsubmit = async(data) => {
+          setLoading(true)
+
+           try {
+             // creat user 
+             const result = await UserLogIn(data.email , data.password)
+              const user = result.user;
+        
+            
+           } catch (error) {
+            console.log(error);
+            
+           }finally{
+            setLoading(false)
+           }
+
+
+               
+       
+         
+    }
+    return (
+        <div className="my-16 px-14 min-h-screen">
+
+    
+          <div className="">
+            <div className="grid grid-cols-2 items-center gap-x-4">
+                
+
+                   {/* sign up form  */}
+              <form className="auth_form w-[70%] mx-auto" onSubmit={handleSubmit(onsubmit)}>
+                          <h1 className="my-4 uppercase font-semibold text-2xl">Log In</h1>
+              
+
+                        {/* email */}
+                <label className="label">Email</label>
+                <input type="email" placeholder="Email"
+                className={`input ${errors.email ? 'input-error' : ''}`}
+     
+                {...register('email',{required : 'email is required'})}
+                />
+                {errors.email && <p className='text-error text-sm mb-1' > {errors.email.message} </p> }
+
+                        {/* password */}
+                     <div className='relative'>
+                     <label className="label">Password</label>
+                <input type={`${showPassword ? 'text' : 'password'}`}  placeholder="Password"
+                className={`input ${errors.password ? 'input-error' : ''}`}
+                {...register('password',{required : 'password is required',
+                        minLength : {
+                            value : 6,
+                             message : 'password must be at least 6 charecters , one Capitale letter & one Number '
+                        },
+                        pattern :{
+                             value : /^(?=.*[A-Z])(?=.*\d)/,
+                             message : 'password must be at least 6 charecters , one Capitale letter & one Number '
+                        }
+
+                })}
+                />
+
+                      <div onClick={() => setShowPassword(!showPassword)} className="password_toggle_eye absolute top-12 right-6">
+
+                      {
+      showPassword ? <FaEyeSlash /> : <FaEye />
+    }
+                           
+                        
+                      </div>
+                     </div>
+                     <a className='text-end font-semibold'>Forget Password ?</a>
+
+{errors.password && <p className='text-error text-sm mb-1' > {errors.password.message} </p> }
+
+
+                <button className="primary_btn w-full mt-4">
+                    {
+
+                       loading ? <> <FaSpinner className='animate-spin'></FaSpinner> </> : 'Log In'
+                    }
+                   </button>
+
+                <p className='capitalize my-4 font-semibold text-end'>You Have No Account ? please   <Link to='/SignUp' className='primary_text_color'> Sign Up</Link> </p>
+              </form>
+
+              <div className="form_img">
+                         <img src={image_1} alt="" className='' />
+                   </div>
+
+
+            </div>
+          </div>
+    
+      </div>
+    );
+};
+
+export default LogIn;
