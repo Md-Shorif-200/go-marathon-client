@@ -53,3 +53,15 @@
 .banner_cnt {
  
 }
+
+/* add marathon form */
+.addMarathon_form input {
+    @apply w-full mt-1 mb-4
+}
+.addMarathon_form textarea,select {
+    @apply w-full 
+}
+
+.addMarathon_form label {
+    @apply text-lg mb-2 
+}

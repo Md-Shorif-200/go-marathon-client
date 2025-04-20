@@ -8,6 +8,7 @@ import ErrorPage from "../Components/Common/ErrorPage";
 import Home from "../Pages/Home/Home";
 import SignUp from "../Pages/Auth/SignUp";
 import LogIn from "../Pages/Auth/LogIn";
+import AddMarathon from "../Pages/AddMarathon/AddMarathon";
 
 
   
@@ -23,6 +24,10 @@ import LogIn from "../Pages/Auth/LogIn";
         {
             path : '/',
             element : <Home></Home>
+        },
+        {
+            path : 'addMarathon',
+            element : <AddMarathon></AddMarathon>
         },
 
         // Auth form 

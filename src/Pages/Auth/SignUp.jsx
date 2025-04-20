@@ -6,6 +6,7 @@ import image_1 from '../../assets/FormImage/running-t-shirt-template_835895-1043
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaSpinner } from 'react-icons/fa';
 import { sendEmailVerification } from 'firebase/auth';
+import toast from 'react-hot-toast';
 
 const SignUp = () => {
     // react hook form  
@@ -33,6 +34,7 @@ const SignUp = () => {
               const user = result.user;
                 reset();
                 navigate('/')
+                toast.success('Registration Succesfully')
               //  await sendEmailVerification(user);
               //  alert('An email has been sent. Please check your email to verify.')
             

@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCWSwkqx9tT6w2U1l-eFbkRhhJBJ-VepVw",
-  authDomain: "go-marathon-21c56.firebaseapp.com",
-  projectId: "go-marathon-21c56",
-  storageBucket: "go-marathon-21c56.firebasestorage.app",
-  messagingSenderId: "993025808114",
-  appId: "1:993025808114:web:ef604d66851054e57d626b"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

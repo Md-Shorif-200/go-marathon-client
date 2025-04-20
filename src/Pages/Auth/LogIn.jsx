@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaSpinner } from 'react-icons/fa';
 import { sendEmailVerification } from 'firebase/auth';
 import SocialLogIn from './SocialLogIn';
+import toast from 'react-hot-toast';
 
 const LogIn = () => {
     // react hook form  
@@ -18,7 +19,7 @@ const LogIn = () => {
       } = useForm();
 
 
-    const {UserLogIn} = useAuth()
+    const {userLogIn} = useAuth()
     const [loading,setLoading] = useState(false);
     const [showPassword,setShowPassword] = useState(true);
     const navigate = useNavigate();
@@ -32,10 +33,11 @@ const LogIn = () => {
 
            try {
              // creat user 
-             const result = await UserLogIn(data.email , data.password)
+             const result = await userLogIn(data.email,data.password)
               const user = result.user;
              reset();
              navigate(from,{replace : true});
+             toast.success('succesfully log in')
             
            } catch (error) {
             console.log(error);

@@ -13,9 +13,9 @@ const Navbar = () => {
 
      const links = <>
       
-          <li> <NavLink>home</NavLink> </li>
+          <li> <NavLink to='/'>home</NavLink> </li>
           <li> <NavLink>marathon</NavLink> </li>
-          <li> <NavLink>about us</NavLink> </li>
+          <li> <NavLink to='addMarathon'>Add Marathon</NavLink> </li>
 
       </>
 
