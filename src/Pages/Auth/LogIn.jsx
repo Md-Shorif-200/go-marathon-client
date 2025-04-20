@@ -6,12 +6,14 @@ import image_1 from '../../assets/FormImage/LogIn.avif'
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaSpinner } from 'react-icons/fa';
 import { sendEmailVerification } from 'firebase/auth';
+import SocialLogIn from './SocialLogIn';
 
 const LogIn = () => {
     // react hook form  
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors }
       } = useForm();
 
@@ -28,7 +30,7 @@ const LogIn = () => {
              // creat user 
              const result = await UserLogIn(data.email , data.password)
               const user = result.user;
-        
+             reset()
             
            } catch (error) {
             console.log(error);
@@ -50,7 +52,8 @@ const LogIn = () => {
             <div className="grid grid-cols-2 items-center gap-x-4">
                 
 
-                   {/* sign up form  */}
+                       <div>
+                               {/* sign up form  */}
               <form className="auth_form w-[70%] mx-auto" onSubmit={handleSubmit(onsubmit)}>
                           <h1 className="my-4 uppercase font-semibold text-2xl">Log In</h1>
               
@@ -104,7 +107,16 @@ const LogIn = () => {
                    </button>
 
                 <p className='capitalize my-4 font-semibold text-end'>You Have No Account ? please   <Link to='/SignUp' className='primary_text_color'> Sign Up</Link> </p>
+
+                <div className="divider">OR</div>
+           
+                     <SocialLogIn></SocialLogIn>
+
               </form>
+
+            
+
+                       </div>
 
               <div className="form_img">
                          <img src={image_1} alt="" className='' />

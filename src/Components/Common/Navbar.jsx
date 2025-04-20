@@ -3,6 +3,8 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import { FaUser,FaSignOutAlt } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
+// nav logo
+import navLogo from '../../assets/NavLogo/go_marathon_loogo_1.png'
 
 const Navbar = () => {
 
@@ -19,7 +21,7 @@ const Navbar = () => {
 
     
     return (
-        <div className="navbar  flex justify-between bg-base-100 shadow-sm px-14 py-4">
+        <div className="navbar  flex items-center justify-between bg-base-100 shadow-sm px-14 py-4 sticky top-0">
         <div className="">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -31,7 +33,12 @@ const Navbar = () => {
                         {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl primary_text_color">GO MARATHON</a>
+
+          <div className="nav_logo  flex items-center gap-x-2">
+          <img src={navLogo} alt="nav-logo"  className='w-[50px] ' />
+          <h2 className='font-semibold'>GOMARATHON</h2>
+          </div>
+
         </div>
         <div className=" hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

@@ -12,6 +12,7 @@ const SignUp = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors }
       } = useForm();
 
@@ -28,7 +29,7 @@ const SignUp = () => {
              // creat user 
              const result = await creatUser(data.email , data.password)
               const user = result.user;
-        
+                reset()
               //  await sendEmailVerification(user);
               //  alert('An email has been sent. Please check your email to verify.')
             
