@@ -30,7 +30,7 @@ const Banner = () => {
     navigation={true}
     loop={true} // ✅ Infinite loop
     autoplay={{
-      delay: 4000, // ✅ Delay in ms
+      delay: 5000, // ✅ Delay in ms
       disableOnInteraction: false,
     }}
     modules={[Navigation, Autoplay]} // ✅ Include Autoplay module

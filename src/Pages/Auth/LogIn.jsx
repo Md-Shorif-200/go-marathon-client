@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../Hooks/useAuth';
 import image_1 from '../../assets/FormImage/LogIn.avif'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaSpinner } from 'react-icons/fa';
 import { sendEmailVerification } from 'firebase/auth';
 import SocialLogIn from './SocialLogIn';
@@ -20,7 +20,11 @@ const LogIn = () => {
 
     const {UserLogIn} = useAuth()
     const [loading,setLoading] = useState(false);
-    const [showPassword,setShowPassword] = useState(true)
+    const [showPassword,setShowPassword] = useState(true);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
 
     const onsubmit = async(data) => {
@@ -30,7 +34,8 @@ const LogIn = () => {
              // creat user 
              const result = await UserLogIn(data.email , data.password)
               const user = result.user;
-             reset()
+             reset();
+             navigate(from,{replace : true});
             
            } catch (error) {
             console.log(error);

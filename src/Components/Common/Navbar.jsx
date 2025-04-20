@@ -21,8 +21,8 @@ const Navbar = () => {
 
     
     return (
-        <div className="navbar  flex items-center justify-between bg-base-100 shadow-sm px-14 py-4 sticky top-0 z-10">
-        <div className="">
+        <div className="navbar  flex items-center justify-between bg-base-100 shadow-sm px-2 sm:px-6 md:px-14 py-4 sticky top-0 z-10">
+        <div className="flex items-center">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
@@ -34,8 +34,8 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="nav_logo  flex items-center gap-x-2">
-          <img src={navLogo} alt="nav-logo"  className='w-[50px] ' />
+          <div className="nav_logo  flex items-center sm:gap-x-2">
+          <img src={navLogo} alt="nav-logo"  className=' w-[40px]  sm:w-[50px] ' />
           <h2 className='font-semibold'>GOMARATHON</h2>
           </div>
 
@@ -80,7 +80,7 @@ const Navbar = () => {
                   <button className="primary_btn">Log In</button>
                 </Link>
 
-                <Link to='signUp' className="sign_up">
+                <Link to='signUp' className="sign_up hidden sm:block ">
                   <button className="secondary_btn">Sign Up</button>
                 </Link>
           </div>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import useAuth from '../../Hooks/useAuth';
 
 import { useForm } from 'react-hook-form';
-import useAuth from '../../Hooks/useAuth';
 import image_1 from '../../assets/FormImage/running-t-shirt-template_835895-10432.avif'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash, FaSpinner } from 'react-icons/fa';
 import { sendEmailVerification } from 'firebase/auth';
 
@@ -17,9 +17,10 @@ const SignUp = () => {
       } = useForm();
 
 
-    const {creatUser} = useAuth()
+    const {creatUser,updateUserProfile} = useAuth()
     const [loading,setLoading] = useState(false);
-    const [showPassword,setShowPassword] = useState(true)
+    const [showPassword,setShowPassword] = useState(true);
+    const navigate = useNavigate()
 
 
     const onsubmit = async(data) => {
@@ -27,9 +28,11 @@ const SignUp = () => {
 
            try {
              // creat user 
-             const result = await creatUser(data.email , data.password)
+             const result = await creatUser(data.email , data.password);
+             await updateUserProfile(data.name)
               const user = result.user;
-                reset()
+                reset();
+                navigate('/')
               //  await sendEmailVerification(user);
               //  alert('An email has been sent. Please check your email to verify.')
             
