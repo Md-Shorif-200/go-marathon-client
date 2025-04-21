@@ -9,6 +9,8 @@ import Home from "../Pages/Home/Home";
 import SignUp from "../Pages/Auth/SignUp";
 import LogIn from "../Pages/Auth/LogIn";
 import AddMarathon from "../Pages/AddMarathon/AddMarathon";
+import PrivateRoute from "./PrivateRoute";
+import AllMarathon from "../Pages/Marathons/AllMarathon";
 
 
   
@@ -27,8 +29,15 @@ import AddMarathon from "../Pages/AddMarathon/AddMarathon";
         },
         {
             path : 'addMarathon',
-            element : <AddMarathon></AddMarathon>
+            element : <PrivateRoute><AddMarathon></AddMarathon></PrivateRoute>
         },
+
+          {
+             path : 'marathons',
+             element : <AllMarathon></AllMarathon>
+          }
+
+        ,
 
         // Auth form 
         {

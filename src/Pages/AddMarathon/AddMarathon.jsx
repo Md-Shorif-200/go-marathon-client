@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import form_img from '../../assets/Banner-image/add-form-img.avif';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import getUser from '../../Hooks/getUser';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useAuth from '../../Hooks/useAuth';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import Loading from '../../Components/Loading';
 
 
 // image hosting related
@@ -23,9 +29,18 @@ const AddMarathon = () => {
 
           // auth related
           const axiosPublic = useAxiosPublic();
+          const axiosSecure = useAxiosSecure();
+          const [loading,setLoading] = useState(false);
+          const {user} = useAuth();
+          const navigate = useNavigate()
+
+          const [users,isLoading,refetch] = getUser();
+          // console.log(users);
+          
 
           
           const onsubmit = async (data) => {
+          setLoading(true)
             console.log(data);
             // send image to imgbb and get url
             const imgFile = {image : data.image[0]}
@@ -36,7 +51,37 @@ const AddMarathon = () => {
             })
 
 
-             console.log(response.data.data.display_url);
+              if(response.data.success){
+                     const marathonInfo = {
+                        name : user.displayName,
+                        email : user.email,
+                        marathonTitle : data.title,
+                        registrationStart : data.registrationStartDate,
+                        registrationEnd : data.registrationEndDate,
+                        marathonStart : data.marathonStartDate,
+                        location : data.location,
+                        runningDistance : data.runningDistance,
+                        description : data.description,
+                        marathonImage : response.data.data.display_url, 
+                        submitedDate : new Date()
+                     }
+
+                        try {
+                          //  send marathon data to database
+                          const res = await axiosSecure.post('/api/marathon', marathonInfo);
+                              reset()
+                              toast.success('Submited Succesfully');
+                                navigate('/');
+
+                        } catch (error) {
+                          console.log(error);
+                          toast.error(error.message)
+                          
+                        }finally{
+                          setLoading(false)
+                        }
+
+              }
              
              
         }
@@ -44,8 +89,9 @@ const AddMarathon = () => {
 
 
     return (
-<div className=" w-full  min-h-screen grid grid-cols-2 px-16 my-14">
-
+              <div>
+              {loading && <Loading></Loading>}
+                <div className=" w-full  min-h-screen grid grid-cols-2 px-16 my-14">
   <div className="form_img">
        <img src={form_img} alt="" />
   </div>
@@ -144,6 +190,7 @@ const AddMarathon = () => {
   </form>
   
 </div>
+              </div>
     );
 };
 
