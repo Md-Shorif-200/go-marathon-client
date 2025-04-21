@@ -11,6 +11,7 @@ import LogIn from "../Pages/Auth/LogIn";
 import AddMarathon from "../Pages/AddMarathon/AddMarathon";
 import PrivateRoute from "./PrivateRoute";
 import AllMarathon from "../Pages/Marathons/AllMarathon";
+import MarathonDetails from "../Pages/Marathons/MarathonDetails";
 
 
   
@@ -35,9 +36,13 @@ import AllMarathon from "../Pages/Marathons/AllMarathon";
           {
              path : 'marathons',
              element : <AllMarathon></AllMarathon>
-          }
+          },
 
-        ,
+
+          {
+              path : '/marathon-details/:id',
+               element : <MarathonDetails></MarathonDetails>
+          },
 
         // Auth form 
         {

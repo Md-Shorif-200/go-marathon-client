@@ -1,8 +1,10 @@
 import React from 'react';
 import { FaLocationDot } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const MarathonCard = ({ marathonData }) => {
   const {
+     _id,
     marathonTitle,
     registrationStart,
     registrationEnd,
@@ -55,9 +57,9 @@ const MarathonCard = ({ marathonData }) => {
 
         {/* Button */}
         <div className="pt-2">
-          <button className="w-full primary_btn">
+          <Link to={`/marathon-details/${_id}`} className=" flex  justify-center mx-auto w-full primary_btn">
             See Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>
