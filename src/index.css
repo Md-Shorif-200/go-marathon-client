@@ -56,7 +56,7 @@
 
 /* add marathon form */
 .addMarathon_form input {
-    @apply w-full mt-1 mb-4
+    @apply w-full  mb-2
 }
 .addMarathon_form textarea,select {
     @apply w-full 
@@ -64,4 +64,16 @@
 
 .addMarathon_form label {
     @apply text-lg mb-2 
+}
+
+/* register form */
+.register_form input {
+    @apply w-full mt-1 mb-2
+}
+.register_form label {
+    @apply text-lg 
+}
+
+.register_form textarea {
+    @apply w-full 
 }

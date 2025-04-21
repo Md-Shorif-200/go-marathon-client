@@ -4,6 +4,8 @@ import MarathonCard from './MarathonCard';
 
 const AllMarathon = () => {
       const [marathons,isLoading,refetch] = useMarathon();
+       console.log(marathons);
+       
   
         
         

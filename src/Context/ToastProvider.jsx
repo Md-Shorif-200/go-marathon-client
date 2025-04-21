@@ -3,30 +3,30 @@ import { Toaster } from 'react-hot-toast';
 
 const ToastProvider = () => {
     return (
-        <Toaster
-        position="top-right"
-        reverseOrder={false}
-        toastOptions={{
-          duration: 4000,
-          style: {
-            background: "#333",
-            color: "#fff",
-            fontSize: "15px",
+         <Toaster
+      position="top-left"
+      reverseOrder={false}
+      toastOptions={{
+        duration: 5000,
+        style: {
+          background: "#FFFFFF",
+          color: "#000000",
+          fontSize: "17px",
+        },
+        success: {
+          iconTheme: {
+            primary: "#4CAF50",
+            secondary: "#fff",
           },
-          success: {
-            iconTheme: {
-              primary: "#4CAF50",
-              secondary: "#fff",
-            },
+        },
+        error: {
+          iconTheme: {
+            primary: "#F44336",
+            secondary: "#fff",
           },
-          error: {
-            iconTheme: {
-              primary: "#F44336",
-              secondary: "#fff",
-            },
-          },
-        }}
-      />
+        },
+      }}
+    />
     );
 };
 
