@@ -68,7 +68,7 @@ const Navbar = () => {
 
           </Link>
         </li>
-        <li><Link to='dashboard' className='text-lg my-2'> <MdDashboard></MdDashboard> Dashboard</Link></li>
+        <li><Link to='dashboard/myMarathons' className='text-lg my-2'> <MdDashboard></MdDashboard> Dashboard</Link></li>
         <li><Link onClick={userLogOut} className='text-lg my-2'>  <FaSignOutAlt></FaSignOutAlt> Logout</Link></li>
       </ul>
     </div>
