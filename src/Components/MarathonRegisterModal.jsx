@@ -1,134 +1,140 @@
-import React from 'react';
+import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import useAuth from '../Hooks/useAuth';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 
-const MarathonRegisterModal = ({marathonData}) => {
-    // react hook form  
-      const {
-          register,
-          handleSubmit,
-          reset,
-          formState: { errors }
-        } = useForm();
+export default function MarathonRegisterModal({ marathonData }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
 
-        // auth related
-        const {user} = useAuth();
-        const axiosSecure = useAxiosSecure();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm();
 
+  const onSubmit = async (data) => {
+    const registerdData = {
+      name: user.displayName,
+      email: user.email,
+      marathonTitle: marathonData.marathonTitle,
+      marathonStart: marathonData.marathonStart,
+      userPhoneNumber: data.phoneNumber,
+      additionalInfo: data.additionalInfo,
+      registerdId: marathonData._id,
+      registerdDate: new Date()
+    };
 
-        const onsubmit = async (data) => {
-           console.log(data);
+    try {
+      await axiosSecure.post('/api/registerd-marathon', registerdData);
+      toast.success('Registered Successfully');
+      reset();
+      setIsOpen(false);
+    } catch (error) {
+      toast.error('Registration failed');
+      console.log(error);
+    }
+  };
 
-           const registerdData = {
-                name : user.displayName,
-                email : user.email,
-                marathonTitle : marathonData.marathonTitle,
-                marathonStart : marathonData.marathonStart,
-                userPhoneNumber : data.phoneNumber,
-                additionalInfo : data.additionalInfo,
-                 registerdId : marathonData._id,
-                registerdDate : new Date()
-           }
+  return (
+    <>
+      {/* Open Button */}
+      <button className="btn btn-primary mt-6 w-full md:w-1/2" onClick={() => setIsOpen(true)}>
+        Register Now
+      </button>
 
+      <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm" aria-hidden="true" />
 
-           try {
-              const res = await axiosSecure.post('/api/registerd-marathon',registerdData);
-              reset() // reset form
-              toast.success('Registerd Successfully')
-           } catch (error) {
-              console.log(error);
-              
-           }  finally{
-            document.getElementById('my_modal_5').close()
-           }
-           
-        }
-  
-    return (
-        <div>
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-<button className="primary_btn mt-6 w-full md:w-1/2" onClick={()=>document.getElementById('my_modal_5').showModal()}>Register Now</button>
-<dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-  <div className="modal-box">
-    {/* <h3 className="font-bold text-lg">Hello!</h3> */}
-         
-                {/* register form  */}
-         <div className="register_form capitalize">
-         <div className="">
-        <form className="fieldset" onSubmit={handleSubmit(onsubmit)}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <DialogPanel className="w-full max-w-xl rounded-xl bg-white p-6 shadow-xl space-y-4">
+            <DialogTitle className="text-lg font-bold text-center">
+              Register for {marathonData.marathonTitle}
+            </DialogTitle>
 
-                       {/* title */}
-             <label className="label">marathon Title</label>
-          <input type="text" placeholder=""
-             className= 'input'   value={marathonData.marathonTitle} />
-       
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+              <div>
+                <label className="label">Marathon Title</label>
+                <input
+                  type="text"
+                  value={marathonData.marathonTitle}
+                  readOnly
+                  className="input input-bordered w-full"
+                />
+              </div>
 
+              <div>
+                <label className="label">Marathon Start</label>
+                <input
+                  type="text"
+                  value={marathonData.marathonStart}
+                  readOnly
+                  className="input input-bordered w-full"
+                />
+              </div>
 
-                 {/* Marathon start date */}
-                 <label className="label">marathon Start</label>
-          <input type="text" placeholder=""
-             className= 'input'  value={marathonData.marathonStart} />
+              <div>
+                <label className="label">Phone Number</label>
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  className="input input-bordered w-full"
+                  {...register('phoneNumber', {
+                    required: 'Phone number is required',
+                    minLength: {
+                      value: 11,
+                      message: 'Must be 11 digits'
+                    },
+                    maxLength: {
+                      value: 11,
+                      message: 'Must be 11 digits'
+                    }
+                  })}
+                />
+                {errors.phoneNumber && (
+                  <p className="text-error text-sm">{errors.phoneNumber.message}</p>
+                )}
+              </div>
 
-             {/* phone Number */}
-             <label className="label">Phone </label>
+              <div>
+                <label className="label">Additional Info</label>
+                <textarea
+                  className={`textarea textarea-bordered w-full ${
+                    errors.additionalInfo ? 'textarea-error' : ''
+                  }`}
+                  placeholder="Additional info"
+                  {...register('additionalInfo', {
+                    required: 'Additional info is required'
+                  })}
+                ></textarea>
+                {errors.additionalInfo && (
+                  <p className="text-error text-sm">{errors.additionalInfo.message}</p>
+                )}
+              </div>
 
-             <label className="input validator w-full">
- <input
-    type="tel"
-    className="tabular-nums"
-    required
-    placeholder="Phone Number"
-    
-    minlength="11"
-    maxlength="11"
-    title="Must be 11 digits"
-   {...register('phoneNumber')}
-  />
-</label>
-<p className="validator-hint">Must be 11 digits</p>
-
-
-              {/* additionl info  */}
-              <label className="label">Additional info</label>
-              <textarea className={`textarea ${errors.additionalInfo ? 'input-error' : ''}`} placeholder="Additional info"
-              {...register('additionalInfo',{required : 'additionalInfo is required'})}
-              ></textarea>
-                {errors.additionalInfo && <p className='text-error text-sm mb-1' > {errors.additionalInfo.message} </p> }
-
-                  {/* Button Row */}
-              <div className="flex justify-end gap-4 mt-4">
-                {/* Close Button */}
+              <div className="flex flex-col sm:flex-row justify-end gap-4 pt-4">
                 <button
                   type="button"
-                  className="btn btn-outline"
+                  className="btn btn-outline w-full sm:w-auto"
                   onClick={() => {
-                    reset()  //reset form 
-                    document.getElementById('my_modal_5').close()}
-                  } 
+                    reset();
+                    setIsOpen(false);
+                  }}
                 >
                   Cancel
                 </button>
-
-                {/* Submit Button */}
-                <button type="submit" className="btn btn-neutral">
+                <button type="submit" className="btn btn-neutral w-full sm:w-auto">
                   Register
                 </button>
               </div>
-
-
- 
-        </form>
-      </div>
-         </div>
-
-
-
-  </div>
-</dialog>
+            </form>
+          </DialogPanel>
         </div>
-    );
-};
-
-export default MarathonRegisterModal;
+      </Dialog>
+    </>
+  );
+}

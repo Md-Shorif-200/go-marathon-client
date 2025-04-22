@@ -6,13 +6,14 @@ import { MdDelete, MdUpdate } from 'react-icons/md';
 import { GrUpdate } from "react-icons/gr";
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
+import MarathonUpdateModal from './MarathonUpdateModal';
 
 const MyMarathons = () => {
   const { user } = useAuth();
   const [marathons,isLoading,refetch] = useMarathon();
   const axiosSecure = useAxiosSecure();
 
-  // filter my apply data
+  // filter my marathon data
   const myMarathonData = marathons.filter(marathonData => marathonData?.email === user?.email);
 
 
@@ -110,13 +111,8 @@ const MyMarathons = () => {
                 <td className="px-6 py-4">{data?.runningDistance} km</td>
                 {/* <td className="px-6 py-4">{data?.registerdId}</td> */}
                 <td className="px-6 py-4 text-center">
-  <button
-    className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2 rounded-md shadow-md transition-all duration-200"
-    title="Update"
-  >
-    <GrUpdate className="text-lg" />
-    Update
-  </button>
+ 
+    <MarathonUpdateModal marathonData={data}></MarathonUpdateModal>
 </td>
 
 <td className="px-6 py-4 text-center">
