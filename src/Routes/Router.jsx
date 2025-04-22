@@ -12,6 +12,9 @@ import AddMarathon from "../Pages/AddMarathon/AddMarathon";
 import PrivateRoute from "./PrivateRoute";
 import AllMarathon from "../Pages/Marathons/AllMarathon";
 import MarathonDetails from "../Pages/Marathons/MarathonDetails";
+import DashboardLayout from "../Dashboard/DashboardLayout";
+import MyApplyList from "../Dashboard/MyApplyList";
+import MyMarathons from "../Dashboard/MyMarathons";
 
 
   
@@ -56,6 +59,22 @@ import MarathonDetails from "../Pages/Marathons/MarathonDetails";
         }
       ]
     },
+    // dashboard route
+      {
+        path : 'dashboard',
+        errorElement : <ErrorPage></ErrorPage>,
+        element : <DashboardLayout></DashboardLayout>,
+        children : [
+           {
+             path : '/dashboard/myApplyList',
+             element : <MyApplyList></MyApplyList>
+           },
+           {
+            path : '/dashboard/myMarathons',
+            element : <MyMarathons></MyMarathons>
+           }
+        ]
+      }
   ]);
 
 

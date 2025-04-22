@@ -77,3 +77,12 @@
 .register_form textarea {
     @apply w-full 
 }
+
+/* dashboard layout */
+.drawer ul li a {
+    @apply  text-black font-semibold mb-2
+}
+
+.drawer ul li a.active {
+    @apply bg-white font-semibold
+}
