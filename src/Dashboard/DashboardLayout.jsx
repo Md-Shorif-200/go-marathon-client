@@ -41,18 +41,7 @@ const DashboardLayout = () => {
           </div>
 
           <ul className="menu space-y-2 text-base">
-            <li>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  `flex items-center gap-2 p-2 rounded-md transition ${
-                    isActive ? 'bg-white text-[#F4A261]' : 'hover:bg-[#f8bb86]'
-                  }`
-                }
-              >
-                <FiHome /> Home
-              </NavLink>
-            </li>
+           
 
             <li>
               <NavLink
@@ -77,6 +66,19 @@ const DashboardLayout = () => {
                 }
               >
                 <FiFlag /> My Marathons
+              </NavLink>
+            </li>
+          
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `flex items-center gap-2 p-2 rounded-md transition ${
+                    isActive ? 'bg-white text-[#F4A261]' : 'hover:bg-[#f8bb86]'
+                  }`
+                }
+              >
+                <FiHome /> Home
               </NavLink>
             </li>
           </ul>

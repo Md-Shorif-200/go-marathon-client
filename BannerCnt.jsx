@@ -3,11 +3,11 @@ import AnimatedTitle from './src/Components/AnimatedTitle';
 
 const BannerCnt = ({banner_img,description,title}) => {
     return (
-        <div className='banner w-full min-h-screen   md:flex  justify-between bg-[#EFF2F9]'>
+        <div className='banner w-full min-h-screen   md:flex  justify-between secondary_bg_color'>
 
                   <div className="banner_cnt md:w-[50%]   h-full pt-20 px-2 sm:px-6 md:px-16">
                            
-                           <AnimatedTitle animateTtile={'welcome to gomarathon'}></AnimatedTitle>
+                           <AnimatedTitle title={'welcome to gomarathon'}></AnimatedTitle>
                            <h1 className='text-2xl lg:text-5xl uppercase font-bold my-6'>  {title} </h1>
                            <p className='text-gray-600 my-4'>  {description} </p>
 

@@ -15,6 +15,10 @@
     .primary_bg_color {
           background-color: var(--primary);
     }
+
+    .secondary_bg_color{
+        @apply bg-[#EFF2F9]
+    }
     .primary_text_color {
          color: var(--primary);
     }

@@ -16,9 +16,9 @@ const MarathonCard = ({ marathonData }) => {
   } = marathonData;
 
   return (
-    <div className="card bg-white shadow-md rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+    <div className=" bg-white shadow-md  overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
       {/* Image */}
-      <figure className="w-full h-60 overflow-hidden">
+      <figure className="w-full h-60 sm:h-55 md:h-50 lg:h-45 overflow-hidden">
         <img
           src={marathonImage}
           alt={marathonTitle}
@@ -29,7 +29,7 @@ const MarathonCard = ({ marathonData }) => {
       {/* Content */}
       <div className="px-5 py-4 space-y-3">
         {/* Title */}
-        <h2 className="text-xl font-bold text-gray-800">{marathonTitle}</h2>
+        <h2 className="text-xl font-bold text-gray-800" title={marathonTitle}>{marathonTitle.slice(0,15)}</h2>
 
         {/* Registration Dates */}
         <div className="grid grid-cols-2 gap-4 text-sm text-gray-600 font-medium">
