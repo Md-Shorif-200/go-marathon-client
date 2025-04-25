@@ -27,7 +27,7 @@ const AuthProvider = ({children}) => {
                   const userInfo =  {
                       name : currentUser.displayName ||  'Anonymous',
                       email : currentUser.email,
-                      time : new Date()
+                      joiningDate : new Date()
                     }
 
                     // send user data to database 

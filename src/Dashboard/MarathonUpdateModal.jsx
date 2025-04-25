@@ -23,16 +23,16 @@ export default function MarathonUpdateModal({marathonData}) {
     const [loading,setLoading] = useState(false)
 
     // find  specific marathon data to update
-    const findMarathon = marathons.find(data => data._id == marathonData._id);
+    const findMarathon = marathons?.find(data => data?._id == marathonData?._id);
 
     // set value 
-    const [title , setTitle] = useState(findMarathon.marathonTitle)
-    const [registrationStart , SetRegistrationStart] = useState(findMarathon.registrationStart)
-    const [registrationEnd , SetRegistrationEnd] = useState(findMarathon.registrationEnd)
-    const [marathonStart , setMarathonStart] = useState(findMarathon.registrationEnd)
-    const [location , setLocation] = useState(findMarathon.location)
-    const [runningDistance , setRunningDistance] = useState(findMarathon.runningDistance)
-    const [description , setDescription] = useState(findMarathon.description)
+    const [title , setTitle] = useState(findMarathon?.marathonTitle)
+    const [registrationStart , SetRegistrationStart] = useState(findMarathon?.registrationStart)
+    const [registrationEnd , SetRegistrationEnd] = useState(findMarathon?.registrationEnd)
+    const [marathonStart , setMarathonStart] = useState(findMarathon?.registrationEnd)
+    const [location , setLocation] = useState(findMarathon?.location)
+    const [runningDistance , setRunningDistance] = useState(findMarathon?.runningDistance)
+    const [description , setDescription] = useState(findMarathon?.description)
 
     
 

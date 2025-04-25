@@ -62,7 +62,7 @@ const Navbar = () => {
         tabIndex={0}
         className="menu menu-md dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li>
-          <Link className="text-lg my-2">
+          <Link to='profile' className="text-lg my-2">
              <FaUser></FaUser>
             Profile
 

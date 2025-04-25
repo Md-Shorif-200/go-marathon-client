@@ -15,6 +15,7 @@ import MarathonDetails from "../Pages/Marathons/MarathonDetails";
 import DashboardLayout from "../Dashboard/DashboardLayout";
 import MyApplyList from "../Dashboard/MyApplyList";
 import MyMarathons from "../Dashboard/MyMarathons";
+import Profile from "../Profile/Profile";
 
 
   
@@ -47,7 +48,7 @@ import MyMarathons from "../Dashboard/MyMarathons";
                element : <MarathonDetails></MarathonDetails>
           },
 
-        // Auth form 
+        //  form 
         {
           path : '/signUp',
             element : <SignUp></SignUp>
@@ -56,6 +57,10 @@ import MyMarathons from "../Dashboard/MyMarathons";
         {
           path : '/logIn',
           element  : <LogIn></LogIn>
+        },
+        {
+            path :  'profile',
+            element : <Profile></Profile>
         }
       ]
     },
