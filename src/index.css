@@ -32,13 +32,6 @@
 /* !common section ends */
 
 
-
-
-
-
-
-
-
 /* ! form section */
 
 .auth_form input {
@@ -89,4 +82,13 @@
 
 .drawer ul li a.active {
     @apply bg-white font-semibold
+}
+
+/* sucess story */
+.success_story {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.575);
 }

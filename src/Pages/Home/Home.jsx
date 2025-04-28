@@ -4,6 +4,7 @@ import AboutUs from './AboutUs';
 import PopulerMarathons from './PopulerMarathons';
 import UpCommingMarathons from './UpCommingMarathons';
 import RunningPrograms from './RunningPrograms';
+import SuccessStory from './SuccessStory';
 
 const Home = () => {
 
@@ -16,7 +17,8 @@ const Home = () => {
                 <PopulerMarathons></PopulerMarathons>
                   
                     <RunningPrograms></RunningPrograms>
-                <UpCommingMarathons></UpCommingMarathons>
+                {/* <UpCommingMarathons></UpCommingMarathons> */}
+                <SuccessStory></SuccessStory>
 
         </div>
     );
