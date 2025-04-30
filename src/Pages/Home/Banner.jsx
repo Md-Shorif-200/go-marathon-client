@@ -22,6 +22,7 @@ import img_4 from '../../assets/Banner-image/img_4.jpg'
 import img_5 from '../../assets/Banner-image/img_5.jpg'
 import img_6 from '../../assets/Banner-image/man-athlete-jogging-stadium-morning.jpg'
 import img_7 from '../../assets/Banner-image/img__1.png'
+import bg_img_1 from '../../assets/Banner-image/chtcpt-2.png'
 
 const Banner = () => {
     return (
@@ -30,7 +31,7 @@ const Banner = () => {
     navigation={true}
     loop={true} // ✅ Infinite loop
     autoplay={{
-      delay: 5000, // ✅ Delay in ms
+      delay: 50000, // ✅ Delay in ms
       disableOnInteraction: false,
     }}
     modules={[Navigation, Autoplay]} // ✅ Include Autoplay module
@@ -40,21 +41,21 @@ const Banner = () => {
 
         <SwiperSlide>
 
-                        <BannerCnt title={'Run Beyond Limits'} description={'Join GoMarathon and experience the thrill of every step. Register, train, and compete—your journey starts here.'} banner_img={img_7}></BannerCnt>
+                        <BannerCnt title={'together towards progress'} banner_img={bg_img_1}></BannerCnt>
 
         </SwiperSlide>
 
 
         <SwiperSlide>
 
-<BannerCnt title={'Leaders Who Go the Distance'} description={'The GoMarathon team brings expertise, vision, and energy to every race. Together, we make your marathon experience unforgettable.'} banner_img={img_4}></BannerCnt>
+<BannerCnt title={'Leaders Who Go the Distance'} banner_img={img_4}></BannerCnt>
 
 </SwiperSlide>
 
 
 <SwiperSlide>
 
-<BannerCnt title={' The Ultimate Running Challenge'} description={'Compete in thrilling tournaments, test your limits, and race your way to victory with GoMarathon'} banner_img={img_6}></BannerCnt>
+<BannerCnt title={' The Ultimate Running Challenge'} banner_img={img_6}></BannerCnt>
 
 </SwiperSlide>
 

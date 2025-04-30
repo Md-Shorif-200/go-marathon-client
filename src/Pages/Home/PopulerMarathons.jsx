@@ -12,9 +12,9 @@ const PopulerMarathons = () => {
 
     const populerMarathon = marathons.slice(0,6)
     return (
-         <div className='mt-52'>
+         <div className='mt-52 '>
                   <LeftSectionTitle subtitle={'populer'} title={'marathons'}></LeftSectionTitle>
-             <div className=' px-16 py-10'>
+             <div className=' px-16 py-20 secondary_bg_color'>
 
 {/* <AnimatedTitle title={'populer marathons'}></AnimatedTitle> */}
 
