@@ -32,8 +32,8 @@ const SuccessStory = () => {
       <div>
 
           {/* Top Title Section */}
-          <div className='bg-[#01BFA5] py-12'>
-                <div className='w-[55%] h-[80px] bg-black text-white font-bold flex items-center text-4xl uppercase pl-16 rounded-br-4xl'>
+          <div className='bg-[#01BFA5] py-12 md:py-16'>
+                <div className='w-[95%] md:w-[75%] lg:w-[55%] h-[80px] bg-black text-white font-bold flex items-center text-2xl  md:text-4xl uppercase pl-2 md:pl-16 rounded-br-4xl'>
                     <h1>Real voices, real success stories</h1>
                 </div>
             </div>

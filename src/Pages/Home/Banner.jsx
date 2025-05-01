@@ -23,6 +23,7 @@ import img_5 from '../../assets/Banner-image/img_5.jpg'
 import img_6 from '../../assets/Banner-image/man-athlete-jogging-stadium-morning.jpg'
 import img_7 from '../../assets/Banner-image/img__1.png'
 import bg_img_1 from '../../assets/Banner-image/chtcpt-2.png'
+import bg_img_2 from '../../assets/Banner-image/chart-gpt-1.png'
 
 const Banner = () => {
     return (
@@ -41,14 +42,14 @@ const Banner = () => {
 
         <SwiperSlide>
 
-                        <BannerCnt title={'together towards progress'} banner_img={bg_img_1}></BannerCnt>
+                        <BannerCnt title={'together towards progress'} banner_img={bg_img_2}></BannerCnt>
 
         </SwiperSlide>
 
 
         <SwiperSlide>
 
-<BannerCnt title={'Leaders Who Go the Distance'} banner_img={img_4}></BannerCnt>
+<BannerCnt title={'unleash your true potential'} banner_img={bg_img_1}></BannerCnt>
 
 </SwiperSlide>
 
