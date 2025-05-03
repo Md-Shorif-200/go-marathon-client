@@ -16,7 +16,7 @@ const MarathonCard = ({ marathonData }) => {
   } = marathonData;
 
   return (
-    <div className=" bg-white shadow-md  overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+    <div className=" bg-white shadow-md  overflow-hidden transition-transform duration-300 hover:scale-[1.02]"  data-aos="fade-up">
       {/* Image */}
       <figure className="w-full h-60 sm:h-55 md:h-50 lg:h-45 overflow-hidden">
         <img

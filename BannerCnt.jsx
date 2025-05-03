@@ -1,5 +1,6 @@
 import React from 'react';
 import AnimatedTitle from './src/Components/AnimatedTitle';
+import { Typewriter } from 'react-simple-typewriter';
 
 const BannerCnt = ({banner_img,description,title}) => {
     return (
@@ -8,9 +9,22 @@ const BannerCnt = ({banner_img,description,title}) => {
                   <div className="banner_cnt  md:w-[50%]  h-full  px-2 sm:px-6 md:px-16 text-white">
                            
                            {/* <AnimatedTitle title={'faster progress, better result'}></AnimatedTitle> */}
-                           <h3 className='capitalize text-lg font-semibold pt-10 mb-6 '>faster progress,better result</h3>
+                           <h3 className='capitalize text-lg font-semibold pt-10 mb-6 '>
+                           <Typewriter
+                                                                  words={[`faster progress,better result`]}
+                                                                  loop = {0}
+                                                                   cursor
+                                                                   cursorStyle='__'
+                                                                   typeSpeed={100}
+                                                                   deleteSpeed={100}
+                                                                   delaySpeed={1000}
+                                                               ></Typewriter>
 
-                           <h1 className=' text-5xl sm:text-7xl md:text-[70px] lg:text-[100px]  uppercase font-bold my-4 leading-16 md:leading-20 lg:leading-28'>  {title} </h1>
+                           </h3>
+
+                         
+
+                           <h1 className=' text-5xl sm:text-7xl md:text-[70px] lg:text-[100px]  uppercase font-bold my-4 leading-16 md:leading-20 lg:leading-28' data-aos="fade-right">  {title} </h1>
                          
 
                            

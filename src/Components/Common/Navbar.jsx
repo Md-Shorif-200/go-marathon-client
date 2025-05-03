@@ -3,12 +3,17 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import { FaUser,FaSignOutAlt } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
+
 // nav logo
 import navLogo from '../../assets/NavLogo/go_marathon_loogo_1.png'
+import getUser from '../../Hooks/getUser';
 
 const Navbar = () => {
 
    const {user,userLogOut} = useAuth()
+   const [users, isLoading, refetch] = getUser();
+ 
+   const myProfileData = users?.find(data => data?.email == user?.email)
 
 
      const links = <>
@@ -55,7 +60,7 @@ const Navbar = () => {
         <div className="w-10 rounded-full">
           <img
             alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+            src={myProfileData?.profilePicture} />
         </div>
       </div>
       <ul

@@ -1,12 +1,12 @@
 import React from 'react';
-import img_1 from '../../assets/About-us/model-wearing-beautiful-shade-clothing.jpg'
-import img_2 from '../../assets/About-us/young-people-runner-running-running-road-city-park_41380-393.avif'
+import img_1 from '../../assets/Banner-image/img__1.png'
+import img_2 from '../../assets/Banner-image/unplash-3.jpg'
 
 const AboutUs = () => {
     return (
         <div className='md:grid grid-cols-2 justify-between items-center px-2 md:px-16 py-4 md:py-8 my-8 md:my-16'>
 
-            <div className="about_us_cnt md:pr-20">
+            <div className="about_us_cnt md:pr-20" data-aos="fade-right">
             <h5 className='uppercase font-semibold '>Overcome new distances
             </h5>
             <h1 className='text-xl sm:text-2xl  md:text-5xl font-bold uppercase my-3 md:my-6 '>Elevate your run,
@@ -22,13 +22,13 @@ const AboutUs = () => {
 
             <div className="about_us_image relative w-full max-w-6xl mx-auto">
                     
-              <div className='z-20 absolute top-20  md:top-40 md:right-1/5 w-full'>
+              <div className='z-20 absolute top-20  md:top-40 md:right-1/5 w-full' data-aos="fade-up">
                                               <img src={img_1} alt="" className='w-[70%] md:mx-auto  h-[250px] md:h-[350px] ' />
 
                 </div>             
 
 
-              <div className='relative z-10 w-full flex justify-end md:block'>
+              <div className='relative z-10 w-full flex justify-end md:block' data-aos="fade-up" data-aos-delay="300">
                                              <img src={img_2} alt="" className='w-[70%] md:mx-auto h-[250px] md:h-[350px] ' />
 
                 </div>               

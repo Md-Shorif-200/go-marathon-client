@@ -52,16 +52,16 @@ const LogIn = () => {
          
     }
     return (
-        <div className="my-16 px-14 min-h-screen">
+        <div className="my-16 px-2 sm:px-6 md:px-14 min-h-screen">
 
     
           <div className="">
-            <div className="grid grid-cols-2 items-center gap-x-4">
+            <div className="md:grid grid-cols-2 items-center gap-x-4">
                 
 
                        <div>
                                {/* sign up form  */}
-              <form className="auth_form w-[70%] mx-auto" onSubmit={handleSubmit(onsubmit)}>
+              <form className="auth_form md:w-[70%] mx-auto" onSubmit={handleSubmit(onsubmit)}>
                           <h1 className="my-4 uppercase font-semibold text-2xl">Log In</h1>
               
 

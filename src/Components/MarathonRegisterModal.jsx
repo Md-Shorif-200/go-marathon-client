@@ -4,11 +4,13 @@ import { useState } from 'react';
 import useAuth from '../Hooks/useAuth';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 export default function MarathonRegisterModal({ marathonData }) {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate()
 
   const {
     register,
@@ -34,6 +36,7 @@ export default function MarathonRegisterModal({ marathonData }) {
       toast.success('Registered Successfully');
       reset();
       setIsOpen(false);
+      navigate('/dashboard/myApplyList')
     } catch (error) {
       toast.error('Registration failed');
       console.log(error);

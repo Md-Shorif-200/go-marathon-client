@@ -93,14 +93,14 @@ const AddMarathon = () => {
 
                      {
                         loading ? (<Loading></Loading>) : (
-                          <div className=" w-full  min-h-screen grid grid-cols-2 px-16 my-14">
-                          <div className="form_img">
-                               <img src={form_img} alt="" />
+                          <div className=" w-full  min-h-screen lg:grid grid-cols-2 px-2 sm:px-6 md:px-16 my-6 sm:my-8 md:my-14">
+                          <div className="form_img w-full">
+                               <img src={form_img} alt="" className='w-full' />
                           </div>
                               
-                          <form className=" addMarathon_form fieldset w-[80%] mx-auto grid grid-cols-2" onSubmit={handleSubmit(onsubmit)}>
+                          <form className=" addMarathon_form fieldset w-[80%] mx-auto lg:grid lg:grid-cols-2" onSubmit={handleSubmit(onsubmit)}>
                                                 {/* ******************   title */}
-                                           <div className='col-span-2'>
+                                           <div className='lg:col-span-2'>
                                             <label className="label">Title</label>
                                   <input type="text" className={`input ${errors.title ? 'input-error' : ''}`} placeholder="Enter Marathon Title"
                                   {...register('title',{required : 'this field is required'})}
@@ -153,7 +153,7 @@ const AddMarathon = () => {
                         
                         
                                   {/* *****************************   running distance */}
-                                      <div className='col-span-2'>
+                                      <div className='lg:col-span-2'>
                                          <label className="label">Running Distance</label>
                                   <select defaultValue="Server location" className={`select ${errors.runningDistance ? 'input-error' : ''}`}
                                 {...register('runningDistance',{required : 'this field is required'})}
@@ -168,7 +168,7 @@ const AddMarathon = () => {
                         
                            
                            {/*  *************************  description  */}
-                                <div className='col-span-2'>
+                                <div className='lg:col-span-2'>
                                   <label className="label">Description</label>
                            <textarea className={`textarea  ${errors.description ? 'input-error' : ''}`} placeholder="Marathon details"
                            
@@ -179,7 +179,7 @@ const AddMarathon = () => {
                         
                            {/* ******************** image upload */}
                         
-                             <div className='col-span-2'>
+                             <div className='lg:col-span-2'>
                                  <label className="label">Add Marathon Image</label>
                            <input type="file" className="file-input" {...register('image')} />
                            {errors.description && <p className='text-error text-sm mb-1'> {errors.description.message} </p>}
@@ -188,7 +188,7 @@ const AddMarathon = () => {
                         
                                  
                                     {/* form button */}
-                                  <button className="primary_btn text-lg font-semibold mt-4 col-span-2">Submit</button>
+                                  <button className="primary_btn text-lg font-semibold mt-4 lg:col-span-2">Submit</button>
                           </form>
                           
                                        </div>

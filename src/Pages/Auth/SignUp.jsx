@@ -51,17 +51,17 @@ const SignUp = () => {
          
     }
     return (
-        <div className="my-16 px-14 min-h-screen">
+        <div className="my-16 px-2 sm:px-6 md:px-14 min-h-screen">
 
     
           <div className="">
-            <div className="grid grid-cols-2 gap-x-4">
+            <div className="md:grid grid-cols-2 gap-x-4">
                    <div className="form_img">
                          <img src={image_1} alt="" className='' />
                    </div>
 
                    {/* sign up form  */}
-              <form className="auth_form w-[70%] mx-auto" onSubmit={handleSubmit(onsubmit)}>
+              <form className="auth_form w-full md:w-[70%] mx-auto" onSubmit={handleSubmit(onsubmit)}>
                           <h1 className="my-4 uppercase font-semibold text-2xl">Sign Up</h1>
                 {/*  name  */}
                    <label htmlFor="" className="label">Name</label>
